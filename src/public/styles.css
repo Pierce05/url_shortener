@@ -176,6 +176,32 @@ button.danger:hover {
   flex-wrap: wrap;
 }
 
+.qr-panel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 253, 248, 0.88);
+}
+
+.qr-image,
+.qr-thumb {
+  width: 112px;
+  height: 112px;
+  border-radius: 14px;
+  border: 1px solid rgba(29, 27, 24, 0.08);
+  background: white;
+}
+
+.qr-download,
+.qr-download-link {
+  color: var(--accent-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
 .result-row a,
 .short-link {
   font-weight: 700;
@@ -200,6 +226,13 @@ button.danger:hover {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.62);
   border: 1px solid rgba(29, 27, 24, 0.08);
+}
+
+.url-layout {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
 .short-code {
@@ -243,6 +276,15 @@ button.danger:hover {
   flex-wrap: wrap;
 }
 
+.qr-card {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: center;
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: var(--surface-strong);
+}
+
 .empty-state {
   margin: 0;
   color: var(--muted);
@@ -275,5 +317,11 @@ button.danger:hover {
 
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .url-layout,
+  .qr-panel {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

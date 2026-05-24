@@ -145,3 +145,17 @@ The first live Atlas test exposed a startup bug:
 We fixed that by wrapping startup in an async `startServer()` function and awaiting the database connection before calling `app.listen()`.
 
 This is an important backend lesson: startup order matters. If your app depends on the database, treat database connectivity as part of bootstrapping, not background work.
+
+## QR Code Feature
+
+We upgraded the product so every short link also gets a QR code.
+
+- The backend uses the `qrcode` package.
+- A helper generates a QR image as a data URL for each short link.
+- API responses now include:
+  - `qrCodeDataUrl`
+  - `qrCodeFilename`
+- The frontend shows the QR code immediately after creation.
+- The recent-links cards also show the QR code and a download link.
+
+This is a useful full-stack pattern to learn: sometimes the backend does not just return raw database fields. It can also return derived assets that make the frontend simpler and more consistent.

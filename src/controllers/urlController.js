@@ -3,6 +3,7 @@ const Url = require("../models/Url");
 const AppError = require("../utils/AppError");
 const asyncHandler = require("../utils/asyncHandler");
 const buildShortUrl = require("../utils/buildShortUrl");
+const generateQrCode = require("../utils/generateQrCode");
 const { normalizeUrl, createUniqueShortCode } = require("../services/urlService");
 
 const createUrlSchema = z.object({
@@ -21,12 +22,16 @@ const updateUrlSchema = z.object({
   originalUrl: z.string().min(1, "A URL is required."),
 });
 
-function toUrlResponse(req, urlDoc) {
+async function toUrlResponse(req, urlDoc) {
+  const shortUrl = buildShortUrl(req, urlDoc.shortCode);
+
   return {
     id: urlDoc._id,
     originalUrl: urlDoc.originalUrl,
     shortCode: urlDoc.shortCode,
-    shortUrl: buildShortUrl(req, urlDoc.shortCode),
+    shortUrl,
+    qrCodeDataUrl: await generateQrCode(shortUrl),
+    qrCodeFilename: `${urlDoc.shortCode}-qr.png`,
     clicks: urlDoc.clicks,
     lastVisitedAt: urlDoc.lastVisitedAt,
     createdAt: urlDoc.createdAt,
@@ -44,7 +49,7 @@ const createShortUrl = asyncHandler(async (req, res) => {
     if (existing) {
       return res.status(200).json({
         message: "This URL was already shortened before, so the existing short link was returned.",
-        data: toUrlResponse(req, existing),
+        data: await toUrlResponse(req, existing),
       });
     }
   }
@@ -59,7 +64,7 @@ const createShortUrl = asyncHandler(async (req, res) => {
 
   res.status(201).json({
     message: "Short URL created successfully.",
-    data: toUrlResponse(req, created),
+    data: await toUrlResponse(req, created),
   });
 });
 
@@ -69,7 +74,7 @@ const listUrls = asyncHandler(async (req, res) => {
 
   res.status(200).json({
     count: urls.length,
-    data: urls.map((urlDoc) => toUrlResponse(req, urlDoc)),
+    data: await Promise.all(urls.map((urlDoc) => toUrlResponse(req, urlDoc))),
   });
 });
 
@@ -81,7 +86,7 @@ const getStats = asyncHandler(async (req, res) => {
   }
 
   res.status(200).json({
-    data: toUrlResponse(req, urlDoc),
+    data: await toUrlResponse(req, urlDoc),
   });
 });
 
@@ -104,7 +109,7 @@ const updateShortUrl = asyncHandler(async (req, res) => {
 
   res.status(200).json({
     message: "Short URL updated successfully.",
-    data: toUrlResponse(req, updated),
+    data: await toUrlResponse(req, updated),
   });
 });
 

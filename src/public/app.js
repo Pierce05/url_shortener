@@ -2,12 +2,16 @@ const shortenForm = document.getElementById("shorten-form");
 const messageBox = document.getElementById("message");
 const resultBox = document.getElementById("result");
 const resultLink = document.getElementById("result-link");
+const resultQrImage = document.getElementById("result-qr-image");
+const resultQrDownload = document.getElementById("result-qr-download");
 const copyButton = document.getElementById("copy-button");
 const refreshButton = document.getElementById("refresh-button");
 const urlList = document.getElementById("url-list");
 const template = document.getElementById("url-item-template");
 
 let latestShortUrl = "";
+let latestQrCode = "";
+let latestQrFilename = "";
 
 function setMessage(text, tone = "") {
   messageBox.textContent = text;
@@ -53,6 +57,11 @@ async function loadUrls() {
       shortLinkNode.href = urlEntry.shortUrl;
       shortLinkNode.textContent = urlEntry.shortUrl;
       fragment.querySelector(".original-link").textContent = urlEntry.originalUrl;
+      const qrThumb = fragment.querySelector(".qr-thumb");
+      qrThumb.src = urlEntry.qrCodeDataUrl;
+      const qrDownloadLink = fragment.querySelector(".qr-download-link");
+      qrDownloadLink.href = urlEntry.qrCodeDataUrl;
+      qrDownloadLink.download = urlEntry.qrCodeFilename;
       fragment.querySelector(".clicks").textContent = String(urlEntry.clicks);
       fragment.querySelector(".created-at").textContent = formatDate(urlEntry.createdAt);
       fragment.querySelector(".last-visited").textContent = formatDate(urlEntry.lastVisitedAt);
@@ -149,8 +158,13 @@ shortenForm.addEventListener("submit", async (event) => {
     }
 
     latestShortUrl = payload.data.shortUrl;
+    latestQrCode = payload.data.qrCodeDataUrl;
+    latestQrFilename = payload.data.qrCodeFilename;
     resultLink.href = latestShortUrl;
     resultLink.textContent = latestShortUrl;
+    resultQrImage.src = latestQrCode;
+    resultQrDownload.href = latestQrCode;
+    resultQrDownload.download = latestQrFilename;
     resultBox.classList.remove("hidden");
     shortenForm.reset();
     setMessage(payload.message, "success");

@@ -45,6 +45,10 @@
               <a id="result-link" href="#" target="_blank" rel="noreferrer"></a>
               <button id="copy-button" type="button">Copy</button>
             </div>
+            <div class="qr-panel">
+              <img id="result-qr-image" class="qr-image" alt="QR code for the short URL" />
+              <a id="result-qr-download" class="qr-download" href="#" download>Download QR code</a>
+            </div>
           </section>
         </section>
 
@@ -64,10 +68,16 @@
 
     <template id="url-item-template">
       <article class="url-item">
-        <div class="url-main">
-          <p class="short-code"></p>
-          <a class="short-link" target="_blank" rel="noreferrer"></a>
-          <p class="original-link"></p>
+        <div class="url-layout">
+          <div class="url-main">
+            <p class="short-code"></p>
+            <a class="short-link" target="_blank" rel="noreferrer"></a>
+            <p class="original-link"></p>
+          </div>
+          <div class="qr-card">
+            <img class="qr-thumb" alt="QR code for the short URL" />
+            <a class="qr-download-link" download>Download QR</a>
+          </div>
         </div>
         <dl class="stats-grid">
           <div>

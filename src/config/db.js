@@ -6,6 +6,12 @@ async function connectDB() {
     console.log("MongoDB connected");
   } catch (error) {
     console.error("MongoDB connection failed:", error.message);
+    if (error?.name || error?.code) {
+      console.error("MongoDB error details:", {
+        name: error.name,
+        code: error.code,
+      });
+    }
     process.exit(1);
   }
 }

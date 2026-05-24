@@ -9,6 +9,7 @@ SnapLink is a full-stack URL shortener built with Node.js, Express, MongoDB, and
 - Choose a custom alias when you want a memorable link
 - Redirect short links to the original destination
 - Track clicks and last-visited timestamps
+- Generate a QR code for every short link
 - Edit and delete short links
 - Use the product through a browser dashboard or REST API
 
