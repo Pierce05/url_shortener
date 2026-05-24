@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnapLink | URL Shortener</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">URL shortening, analytics, and sharing</p>
+        <h1>SnapLink turns long URLs into clean, trackable links.</h1>
+        <p class="hero-copy">
+          Create short links, choose your own alias, monitor clicks, and manage everything from one lightweight dashboard.
+        </p>
+      </header>
+
+      <main class="layout">
+        <section class="card form-card">
+          <div class="section-header">
+            <h2>Create a short link</h2>
+            <p>Paste any destination URL. If you want, add a custom code people can remember.</p>
+          </div>
+
+          <form id="shorten-form" class="stack">
+            <label>
+              <span>Destination URL</span>
+              <input id="originalUrl" name="originalUrl" type="text" placeholder="https://example.com/some/really/long/path" required />
+            </label>
+
+            <label>
+              <span>Custom alias (optional)</span>
+              <input id="customCode" name="customCode" type="text" placeholder="launch2026" />
+            </label>
+
+            <button type="submit">Create short URL</button>
+          </form>
+
+          <div id="message" class="message" aria-live="polite"></div>
+
+          <section id="result" class="result hidden" aria-live="polite">
+            <h3>Your short link is ready</h3>
+            <div class="result-row">
+              <a id="result-link" href="#" target="_blank" rel="noreferrer"></a>
+              <button id="copy-button" type="button">Copy</button>
+            </div>
+          </section>
+        </section>
+
+        <section class="card list-card">
+          <div class="section-header row-header">
+            <div>
+              <h2>Recent links</h2>
+              <p>Your latest shortened URLs and their click counts.</p>
+            </div>
+            <button id="refresh-button" class="secondary" type="button">Refresh</button>
+          </div>
+
+          <div id="url-list" class="url-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="url-item-template">
+      <article class="url-item">
+        <div class="url-main">
+          <p class="short-code"></p>
+          <a class="short-link" target="_blank" rel="noreferrer"></a>
+          <p class="original-link"></p>
+        </div>
+        <dl class="stats-grid">
+          <div>
+            <dt>Clicks</dt>
+            <dd class="clicks"></dd>
+          </div>
+          <div>
+            <dt>Created</dt>
+            <dd class="created-at"></dd>
+          </div>
+          <div>
+            <dt>Last visit</dt>
+            <dd class="last-visited"></dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <button class="secondary copy-action" type="button">Copy</button>
+          <button class="secondary edit-action" type="button">Edit URL</button>
+          <button class="danger delete-action" type="button">Delete</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
