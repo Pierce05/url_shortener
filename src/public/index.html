@@ -3,72 +3,171 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SnapLink | URL Shortener</title>
+    <title>SnapLink | Snap. Scan. Shorten.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div class="page-shell">
-      <header class="hero">
-        <p class="eyebrow">URL shortening, analytics, and sharing</p>
-        <h1>SnapLink turns long URLs into clean, trackable links.</h1>
-        <p class="hero-copy">
-          Create short links, choose your own alias, monitor clicks, and manage everything from one lightweight dashboard.
-        </p>
-      </header>
+    <div class="grain"></div>
+    <div class="cursor"></div>
+    <div class="cursor-ring"></div>
 
-      <main class="layout">
-        <section class="card form-card">
-          <div class="section-header">
-            <h2>Create a short link</h2>
-            <p>Paste any destination URL. If you want, add a custom code people can remember.</p>
+    <nav class="top-nav">
+      <a class="logo" href="#hero">SNAP<em>LINK</em></a>
+      <div class="nav-links">
+        <a href="#hero">Shorten</a>
+        <a href="#vault">Vault</a>
+        <a href="#vault">QR</a>
+        <a href="#vault">Stats</a>
+      </div>
+    </nav>
+
+    <section id="hero">
+      <div class="bg-text bg-text-1">SHORTEN</div>
+      <div class="bg-text bg-text-2">SCAN</div>
+      <div class="spotlight"></div>
+      <svg class="web-bg" viewBox="0 0 1600 900" aria-hidden="true" preserveAspectRatio="none">
+        <g stroke="rgba(232,0,13,0.12)" stroke-width="1" fill="none">
+          <path d="M800 450 L800 0" />
+          <path d="M800 450 L1200 120" />
+          <path d="M800 450 L1450 300" />
+          <path d="M800 450 L1500 650" />
+          <path d="M800 450 L1180 860" />
+          <path d="M800 450 L800 900" />
+          <path d="M800 450 L420 860" />
+          <path d="M800 450 L100 650" />
+          <path d="M800 450 L150 300" />
+          <path d="M800 450 L400 120" />
+          <circle cx="800" cy="450" r="130" />
+          <circle cx="800" cy="450" r="260" />
+          <circle cx="800" cy="450" r="410" />
+          <path d="M650 378 Q800 310 950 378" />
+          <path d="M590 312 Q800 215 1010 312" />
+          <path d="M520 250 Q800 118 1080 250" />
+          <path d="M650 522 Q800 590 950 522" />
+          <path d="M590 588 Q800 685 1010 588" />
+          <path d="M520 650 Q800 782 1080 650" />
+        </g>
+      </svg>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          live short links with qr and click tracking
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line-outline">SNAP.</span>
+          <span class="line-red">SCAN.</span>
+          <span class="line-outline">SHORTEN.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Turn one long URL into a cleaner alias, a downloadable QR, and a live visit trail.
+        </p>
+
+        <section class="input-section" aria-label="Create short URL">
+          <div class="hanging-threads" aria-hidden="true">
+            <span class="thread"></span>
+            <span class="thread"></span>
+            <span class="thread"></span>
           </div>
 
-          <form id="shorten-form" class="stack">
-            <label>
-              <span>Destination URL</span>
-              <input id="originalUrl" name="originalUrl" type="text" placeholder="https://example.com/some/really/long/path" required />
-            </label>
+          <form id="shorten-form" class="web-input-box">
+            <div class="input-row">
+              <div class="url-icon">://</div>
+              <input
+                id="originalUrl"
+                class="url-field"
+                name="originalUrl"
+                type="text"
+                placeholder="Paste a destination URL"
+                required
+              />
+              <button type="submit" class="shoot-btn">
+                <span class="btn-icon">+</span>
+                Create
+              </button>
+            </div>
 
-            <label>
-              <span>Custom alias (optional)</span>
-              <input id="customCode" name="customCode" type="text" placeholder="launch2026" />
-            </label>
+            <div class="alias-row">
+              <span class="alias-label">Alias</span>
+              <span class="alias-prefix">snplnk/</span>
+              <input
+                id="customCode"
+                class="alias-field"
+                name="customCode"
+                type="text"
+                placeholder="optional-custom-name"
+              />
+            </div>
 
-            <button type="submit">Create short URL</button>
+            <div class="web-line"></div>
           </form>
 
           <div id="message" class="message" aria-live="polite"></div>
 
           <section id="result" class="result hidden" aria-live="polite">
-            <h3>Your short link is ready</h3>
-            <div class="result-row">
-              <a id="result-link" href="#" target="_blank" rel="noreferrer"></a>
-              <button id="copy-button" type="button">Copy</button>
-            </div>
-            <div class="qr-panel">
-              <img id="result-qr-image" class="qr-image" alt="QR code for the short URL" />
-              <a id="result-qr-download" class="qr-download" href="#" download>Download QR code</a>
+            <div class="result-topline">Fresh shot captured</div>
+            <div class="result-main">
+              <div class="result-copy">
+                <h2>Your short link is live.</h2>
+                <div class="result-row">
+                  <a id="result-link" href="#" target="_blank" rel="noreferrer"></a>
+                  <button id="copy-button" class="secondary-action" type="button">Copy link</button>
+                </div>
+              </div>
+              <div class="qr-panel">
+                <img id="result-qr-image" class="qr-image" alt="QR code for the short URL" />
+                <a id="result-qr-download" class="qr-download" href="#" download>Download QR</a>
+              </div>
             </div>
           </section>
         </section>
+      </div>
 
-        <section class="card list-card">
-          <div class="section-header row-header">
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="scroll-cue-text">Vault</span>
+        <span class="scroll-arrow"></span>
+      </div>
+    </section>
+
+    <section id="vault">
+      <div class="vault-glow"></div>
+      <div class="vault-layout">
+        <div class="vault-copy">
+          <span class="section-kicker">LINK VAULT</span>
+          <h2>
+            <span class="outline">CLEAN LINKS.</span>
+            <span class="filled">TRACKED TRAILS.</span>
+          </h2>
+          <p>
+            Each saved link carries its own short alias, QR card, click count, and last-seen timestamp. Keep the utility. Lose the clutter.
+          </p>
+        </div>
+
+        <div class="vault-panel">
+          <div class="vault-header">
             <div>
-              <h2>Recent links</h2>
-              <p>Your latest shortened URLs and their click counts.</p>
+              <h3>Recent links</h3>
+              <p>Refresh the vault to pull the latest shots.</p>
             </div>
-            <button id="refresh-button" class="secondary" type="button">Refresh</button>
+            <button id="refresh-button" class="secondary-action" type="button">Refresh</button>
           </div>
 
           <div id="url-list" class="url-list"></div>
-        </section>
-      </main>
-    </div>
+        </div>
+      </div>
+    </section>
 
     <template id="url-item-template">
       <article class="url-item">
-        <div class="url-layout">
+        <div class="url-head">
           <div class="url-main">
             <p class="short-code"></p>
             <a class="short-link" target="_blank" rel="noreferrer"></a>
@@ -79,6 +178,7 @@
             <a class="qr-download-link" download>Download QR</a>
           </div>
         </div>
+
         <dl class="stats-grid">
           <div>
             <dt>Clicks</dt>
@@ -93,10 +193,11 @@
             <dd class="last-visited"></dd>
           </div>
         </dl>
+
         <div class="actions">
-          <button class="secondary copy-action" type="button">Copy</button>
-          <button class="secondary edit-action" type="button">Edit URL</button>
-          <button class="danger delete-action" type="button">Delete</button>
+          <button class="secondary-action copy-action" type="button">Copy</button>
+          <button class="secondary-action edit-action" type="button">Edit</button>
+          <button class="danger-action delete-action" type="button">Delete</button>
         </div>
       </article>
     </template>

@@ -8,6 +8,8 @@ const copyButton = document.getElementById("copy-button");
 const refreshButton = document.getElementById("refresh-button");
 const urlList = document.getElementById("url-list");
 const template = document.getElementById("url-item-template");
+const cursor = document.querySelector(".cursor");
+const cursorRing = document.querySelector(".cursor-ring");
 
 let latestShortUrl = "";
 let latestQrCode = "";
@@ -31,7 +33,7 @@ async function copyText(value) {
 }
 
 async function loadUrls() {
-  urlList.innerHTML = "<p class=\"empty-state\">Loading links...</p>";
+  urlList.innerHTML = "<p class=\"empty-state\">Loading the vault...</p>";
 
   try {
     const response = await fetch("/api/urls");
@@ -42,7 +44,7 @@ async function loadUrls() {
     }
 
     if (payload.count === 0) {
-      urlList.innerHTML = "<p class=\"empty-state\">No links yet. Create your first short URL on the left.</p>";
+      urlList.innerHTML = "<p class=\"empty-state\">No links in the vault yet. Fire your first short link from the hero above.</p>";
       return;
     }
 
@@ -126,7 +128,7 @@ async function loadUrls() {
       urlList.appendChild(item);
     });
   } catch (error) {
-    urlList.innerHTML = "<p class=\"empty-state\">Could not load links right now.</p>";
+    urlList.innerHTML = "<p class=\"empty-state\">The vault could not load right now.</p>";
     setMessage(error.message, "error");
   }
 }
@@ -169,6 +171,7 @@ shortenForm.addEventListener("submit", async (event) => {
     shortenForm.reset();
     setMessage(payload.message, "success");
     await loadUrls();
+    resultBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
   } catch (error) {
     resultBox.classList.add("hidden");
     setMessage(error.message, "error");
@@ -189,5 +192,12 @@ copyButton.addEventListener("click", async () => {
 });
 
 refreshButton.addEventListener("click", loadUrls);
+
+if (cursor && cursorRing && window.matchMedia("(min-width: 981px)").matches) {
+  window.addEventListener("mousemove", (event) => {
+    cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+    cursorRing.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+  });
+}
 
 loadUrls();

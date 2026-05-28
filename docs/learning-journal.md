@@ -159,3 +159,26 @@ We upgraded the product so every short link also gets a QR code.
 - The recent-links cards also show the QR code and a download link.
 
 This is a useful full-stack pattern to learn: sometimes the backend does not just return raw database fields. It can also return derived assets that make the frontend simpler and more consistent.
+
+## UI Art Direction Upgrade
+
+We also moved the interface away from a plain dashboard look and into a more intentional fantasy-night visual system.
+
+- Added a moonlit hero scene with layered CSS gradients and decorative forest shapes.
+- Switched to more expressive typography using a serif display face for headings and a cleaner sans-serif for UI text.
+- Restyled cards as glowing glass panels instead of flat light boxes.
+- Kept all functionality intact while changing the visual language.
+
+This is a good frontend lesson: "pretty" is not just adding colors. It usually means choosing a visual direction, then carrying it through layout, typography, spacing, surfaces, and motion in a consistent way.
+
+## Reference-Led Redesign
+
+Later, we replaced that first visual direction with a sharper reference-led redesign based on a local `webshot.html` mockup.
+
+- The new direction uses an editorial black-and-red palette.
+- Headline typography now uses condensed display type instead of soft serif branding.
+- The main interaction moved into the hero instead of living in a separate side card.
+- The page now uses large outline background words, a fixed top navigation, subtle web graphics, and a custom cursor on larger screens.
+- The recent-links section was reframed as a "vault" so the whole product feels like one designed story.
+
+This is an important product design lesson: when a visual direction is based on a real reference, it is usually better to translate its structure, contrast, and rhythm than to only copy its colors.
