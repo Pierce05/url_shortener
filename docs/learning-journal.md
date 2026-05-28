@@ -182,3 +182,37 @@ Later, we replaced that first visual direction with a sharper reference-led rede
 - The recent-links section was reframed as a "vault" so the whole product feels like one designed story.
 
 This is an important product design lesson: when a visual direction is based on a real reference, it is usually better to translate its structure, contrast, and rhythm than to only copy its colors.
+
+## Production Readiness Pass
+
+To move the project from "finished demo" to "strong portfolio repo", we added a final packaging pass:
+
+- exported the Express app in a test-friendly way so it can be required without auto-starting the server
+- added Jest + Supertest API tests
+- added a GitHub Actions CI workflow to run tests automatically on pushes and pull requests
+- added a `render.yaml` deployment blueprint for Render
+- created a GitHub banner asset for stronger project presentation
+- rewrote the README so it explains the product, setup, testing, and deployment clearly
+
+## Why The Testing Setup Matters
+
+The tests do not just check utilities in isolation. They exercise real HTTP routes through the Express app:
+
+- health endpoint
+- URL creation
+- recent-links listing
+- destination update
+- redirect behavior with click count updates
+
+That is stronger evidence of backend skill than only unit-testing tiny helpers.
+
+## Why Render Was Chosen
+
+For this project, Render is the best deployment recommendation because:
+
+- it deploys Express apps directly from GitHub
+- it provides a public URL quickly
+- it supports environment variables and health checks cleanly
+- it works well with MongoDB Atlas for a small full-stack project
+
+The codebase is now deployment-ready, even though the final public launch still requires a Render account connection in the dashboard.

@@ -2,6 +2,8 @@
 
 **Snap. Scan. Shorten.**
 
+![SnapLink banner](./assets/github-banner.svg)
+
 SnapLink is a full-stack URL shortener with a cinematic frontend, QR code generation, click tracking, custom aliases, and a clean REST API. It started as a backend learning project and was pushed into a portfolio-grade product with a strong visual identity, usable browser interface, and production-style structure.
 
 ## Why This Project Stands Out
@@ -50,6 +52,7 @@ This makes it a much better showcase of backend engineering, product thinking, a
 
 ### Tooling
 
+- GitHub Actions
 - Nodemon
 - Dotenv
 - Morgan
@@ -72,9 +75,13 @@ The goal was to make the project instantly memorable on GitHub and in demos.
 
 ```txt
 url-shortener/
+|-- assets/
+|   `-- github-banner.svg
 |-- docs/
 |   |-- learning-journal.md
 |   `-- learning-journal.pdf
+|-- tests/
+|   `-- app.test.js
 |-- scripts/
 |   `-- generate-learning-pdf.py
 |-- src/
@@ -102,7 +109,9 @@ url-shortener/
 |       |-- buildShortUrl.js
 |       `-- generateQrCode.js
 |-- .env.example
+|-- jest.config.js
 |-- package.json
+|-- render.yaml
 `-- README.md
 ```
 
@@ -156,6 +165,48 @@ npm run dev
 
 [http://localhost:5000](http://localhost:5000)
 
+## Deployment
+
+### Recommended platform: Render
+
+Render is the best fit for this project because it:
+
+- deploys directly from GitHub
+- works well with Express apps
+- gives you a public `onrender.com` URL
+- handles environment variables cleanly
+- supports health checks and auto-deploys
+
+This repo already includes a deployment blueprint in [render.yaml](./render.yaml).
+
+### What you need to deploy
+
+1. Sign in to [Render](https://render.com/)
+2. Create a new **Web Service**
+3. Connect this GitHub repo: [Pierce05/url_shortener](https://github.com/Pierce05/url_shortener)
+4. Render should detect the settings from `render.yaml`
+5. Add these environment variables:
+
+```env
+MONGO_URI=your_atlas_connection_string
+BASE_URL=https://your-service-name.onrender.com
+PORT=10000
+```
+
+6. Deploy
+
+### Important Atlas note
+
+For production deployment with MongoDB Atlas:
+
+- allow Render to access your cluster in Atlas Network Access
+- make sure the database user credentials are valid
+- keep the connection string in Render environment variables, not in Git
+
+### Status
+
+The repository is deployment-ready. The final public deployment step requires access to a Render account, so that part must be completed in the hosting dashboard.
+
 ## API Overview
 
 ### Health
@@ -207,6 +258,24 @@ Example body:
 
 This is the real short-link route users visit.
 
+## Testing
+
+Automated API tests are included with Jest and Supertest.
+
+Run them with:
+
+```bash
+npm test
+```
+
+Current coverage focus:
+
+- health endpoint
+- short-link creation
+- recent-link listing
+- destination update
+- redirect behavior and click tracking
+
 ## Example Response Shape
 
 ```json
@@ -255,7 +324,6 @@ npm run learn:pdf
 - expiration dates for short links
 - richer analytics charts
 - copy-QR-image support
-- test coverage for controllers and services
 - deploy to Render, Railway, or a VPS
 - Docker setup for local and production parity
 
