@@ -2,7 +2,7 @@
 
 **Snap. Scan. Shorten.**
 
-![SnapLink banner](./assets/github-banner.svg)
+![SnapLink banner](./assets/github-banner.png)
 
 SnapLink is a full-stack URL shortener with a cinematic frontend, QR code generation, click tracking, custom aliases, and a clean REST API. It started as a backend learning project and was pushed into a portfolio-grade product with a strong visual identity, usable browser interface, and production-style structure.
 

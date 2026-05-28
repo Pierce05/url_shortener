@@ -1,69 +1,101 @@
 <svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1280" height="640" fill="#050505"/>
-  <rect width="1280" height="640" fill="url(#bg)"/>
-  <g opacity="0.16" stroke="#E8000D">
-    <circle cx="650" cy="320" r="120"/>
-    <circle cx="650" cy="320" r="220"/>
-    <circle cx="650" cy="320" r="340"/>
-    <path d="M650 320L650 0"/>
-    <path d="M650 320L1040 80"/>
-    <path d="M650 320L1230 220"/>
-    <path d="M650 320L1170 520"/>
-    <path d="M650 320L910 640"/>
-    <path d="M650 320L390 640"/>
-    <path d="M650 320L130 520"/>
-    <path d="M650 320L70 220"/>
-    <path d="M650 320L260 80"/>
-  </g>
-  <text x="84" y="92" fill="#F5F0E8" font-family="'Bebas Neue', Arial, sans-serif" font-size="34" letter-spacing="6">SNAP<tspan fill="#E8000D">LINK</tspan></text>
-  <text x="86" y="225" fill="none" stroke="#F5F0E8" stroke-width="3.2" font-family="'Anton', Arial, sans-serif" font-size="126" letter-spacing="-2">SNAP.</text>
-  <text x="86" y="336" fill="#E8000D" font-family="'Anton', Arial, sans-serif" font-size="126" letter-spacing="-2">SCAN.</text>
-  <text x="86" y="447" fill="none" stroke="#F5F0E8" stroke-width="3.2" font-family="'Anton', Arial, sans-serif" font-size="126" letter-spacing="-2">SHORTEN.</text>
-  <text x="90" y="505" fill="#F5F0E8" fill-opacity="0.76" font-family="'DM Sans', Arial, sans-serif" font-size="25">
-    Cinematic URL shortener with QR code generation, click tracking, custom aliases, and a clean REST API.
-  </text>
-  <rect x="808.5" y="116.5" width="355" height="405" fill="rgba(255,255,255,0.03)" stroke="rgba(245,240,232,0.12)"/>
-  <text x="842" y="162" fill="#F5F0E8" font-family="'Anton', Arial, sans-serif" font-size="34">RECENT LINKS</text>
-  <text x="842" y="191" fill="#F5F0E8" fill-opacity="0.55" font-family="'DM Sans', Arial, sans-serif" font-size="16">Alias, QR, click trail, last visit.</text>
-  <rect x="842" y="225" width="288" height="124" fill="rgba(255,255,255,0.035)" stroke="rgba(245,240,232,0.1)"/>
-  <text x="864" y="262" fill="#F5F0E8" font-family="'Bebas Neue', Arial, sans-serif" font-size="32" letter-spacing="2">/OPENAI</text>
-  <text x="864" y="288" fill="#F5F0E8" fill-opacity="0.85" font-family="'DM Sans', Arial, sans-serif" font-size="16">https://snaplink-demo.onrender.com/openai</text>
-  <text x="864" y="318" fill="#F5F0E8" fill-opacity="0.5" font-family="'DM Sans', Arial, sans-serif" font-size="14">redirect + analytics + QR download</text>
-  <rect x="1036" y="246" width="74" height="74" fill="#F5F0E8"/>
-  <g fill="#050505">
-    <rect x="1046" y="256" width="8" height="8"/>
-    <rect x="1056" y="256" width="8" height="8"/>
-    <rect x="1066" y="256" width="8" height="8"/>
-    <rect x="1088" y="256" width="8" height="8"/>
-    <rect x="1046" y="266" width="8" height="8"/>
-    <rect x="1066" y="266" width="8" height="8"/>
-    <rect x="1088" y="266" width="8" height="8"/>
-    <rect x="1046" y="276" width="8" height="8"/>
-    <rect x="1056" y="276" width="8" height="8"/>
-    <rect x="1088" y="276" width="8" height="8"/>
-    <rect x="1078" y="286" width="8" height="8"/>
-    <rect x="1098" y="286" width="8" height="8"/>
-    <rect x="1046" y="296" width="8" height="8"/>
-    <rect x="1066" y="296" width="8" height="8"/>
-    <rect x="1088" y="296" width="8" height="8"/>
-    <rect x="1046" y="306" width="8" height="8"/>
-    <rect x="1056" y="306" width="8" height="8"/>
-    <rect x="1078" y="306" width="8" height="8"/>
-    <rect x="1098" y="306" width="8" height="8"/>
-  </g>
-  <rect x="842" y="386" width="86" height="64" fill="rgba(255,255,255,0.035)" stroke="rgba(245,240,232,0.1)"/>
-  <rect x="943" y="386" width="86" height="64" fill="rgba(255,255,255,0.035)" stroke="rgba(245,240,232,0.1)"/>
-  <rect x="1044" y="386" width="86" height="64" fill="rgba(255,255,255,0.035)" stroke="rgba(245,240,232,0.1)"/>
-  <text x="858" y="410" fill="#F5F0E8" fill-opacity="0.48" font-family="'DM Sans', Arial, sans-serif" font-size="12" letter-spacing="2">CLICKS</text>
-  <text x="957" y="410" fill="#F5F0E8" fill-opacity="0.48" font-family="'DM Sans', Arial, sans-serif" font-size="12" letter-spacing="2">CREATED</text>
-  <text x="1058" y="410" fill="#F5F0E8" fill-opacity="0.48" font-family="'DM Sans', Arial, sans-serif" font-size="12" letter-spacing="2">QR</text>
-  <text x="858" y="438" fill="#F5F0E8" font-family="'DM Sans', Arial, sans-serif" font-size="21" font-weight="700">142</text>
-  <text x="957" y="438" fill="#F5F0E8" font-family="'DM Sans', Arial, sans-serif" font-size="21" font-weight="700">today</text>
-  <text x="1058" y="438" fill="#E8000D" font-family="'DM Sans', Arial, sans-serif" font-size="21" font-weight="700">live</text>
   <defs>
     <linearGradient id="bg" x1="640" y1="0" x2="640" y2="640" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0A0A0A"/>
+      <stop stop-color="#090909"/>
       <stop offset="1" stop-color="#050505"/>
     </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 300) rotate(90) scale(280 440)">
+      <stop stop-color="#E8000D" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#E8000D" stop-opacity="0"/>
+    </radialGradient>
   </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#glow)"/>
+
+  <g opacity="0.14" stroke="#E8000D" stroke-width="1">
+    <circle cx="556" cy="320" r="112"/>
+    <circle cx="556" cy="320" r="214"/>
+    <circle cx="556" cy="320" r="336"/>
+    <path d="M556 320L556 0"/>
+    <path d="M556 320L950 72"/>
+    <path d="M556 320L1210 196"/>
+    <path d="M556 320L1192 462"/>
+    <path d="M556 320L930 640"/>
+    <path d="M556 320L196 640"/>
+    <path d="M556 320L0 476"/>
+    <path d="M556 320L0 182"/>
+    <path d="M556 320L170 64"/>
+  </g>
+
+  <text x="82" y="86" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="6">SNAP<tspan fill="#E8000D">LINK</tspan></text>
+  <text x="84" y="122" fill="#F5F0E8" fill-opacity="0.46" font-family="Verdana, Arial, sans-serif" font-size="13" letter-spacing="2">SNAP. SCAN. SHORTEN.</text>
+
+  <text x="84" y="198" fill="#F5F0E8" font-family="Impact, Arial Black, sans-serif" font-size="108" letter-spacing="-1">SNAP.</text>
+  <text x="84" y="294" fill="#FF1D25" font-family="Impact, Arial Black, sans-serif" font-size="108" letter-spacing="-1">SCAN.</text>
+  <text x="84" y="390" fill="#F5F0E8" font-family="Impact, Arial Black, sans-serif" font-size="108" letter-spacing="-1">SHORTEN.</text>
+
+  <text x="88" y="448" fill="#F5F0E8" fill-opacity="0.86" font-family="Verdana, Arial, sans-serif" font-size="24">
+    Cinematic URL shortener with QR codes, custom aliases,
+  </text>
+  <text x="88" y="482" fill="#F5F0E8" fill-opacity="0.86" font-family="Verdana, Arial, sans-serif" font-size="24">
+    redirect analytics, and a production-ready Express API.
+  </text>
+
+  <g transform="translate(88 528)">
+    <rect width="146" height="42" rx="21" fill="#121212" stroke="rgba(245,240,232,0.14)"/>
+    <text x="24" y="27" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="700">Node + Express</text>
+  </g>
+  <g transform="translate(248 528)">
+    <rect width="124" height="42" rx="21" fill="#121212" stroke="rgba(245,240,232,0.14)"/>
+    <text x="30" y="27" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="700">MongoDB</text>
+  </g>
+  <g transform="translate(386 528)">
+    <rect width="126" height="42" rx="21" fill="#121212" stroke="rgba(245,240,232,0.14)"/>
+    <text x="38" y="27" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="700">QR Built-in</text>
+  </g>
+
+  <g transform="translate(770 106)">
+    <rect x="0.5" y="0.5" width="410" height="414" fill="rgba(255,255,255,0.03)" stroke="rgba(245,240,232,0.12)"/>
+    <text x="34" y="54" fill="#F5F0E8" font-family="Impact, Arial Black, sans-serif" font-size="34">WHAT SNAPLINK DOES</text>
+    <text x="34" y="86" fill="#F5F0E8" fill-opacity="0.55" font-family="Verdana, Arial, sans-serif" font-size="15">Shorten once. Share anywhere.</text>
+
+    <rect x="34.5" y="118.5" width="342" height="108" fill="rgba(255,255,255,0.03)" stroke="rgba(245,240,232,0.10)"/>
+    <text x="56" y="156" fill="#F5F0E8" font-family="Impact, Arial Black, sans-serif" font-size="34">/OPENAI</text>
+    <text x="56" y="184" fill="#FFFFFF" font-family="Verdana, Arial, sans-serif" font-size="15" font-weight="700">snplnk.onrender.com/openai</text>
+    <text x="56" y="210" fill="#F5F0E8" fill-opacity="0.48" font-family="Verdana, Arial, sans-serif" font-size="13">clean alias • public redirect • QR download</text>
+
+    <rect x="290" y="134" width="68" height="68" fill="#F5F0E8"/>
+    <g fill="#050505">
+      <rect x="300" y="144" width="8" height="8"/>
+      <rect x="310" y="144" width="8" height="8"/>
+      <rect x="320" y="144" width="8" height="8"/>
+      <rect x="332" y="144" width="8" height="8"/>
+      <rect x="300" y="154" width="8" height="8"/>
+      <rect x="320" y="154" width="8" height="8"/>
+      <rect x="340" y="154" width="8" height="8"/>
+      <rect x="300" y="164" width="8" height="8"/>
+      <rect x="310" y="164" width="8" height="8"/>
+      <rect x="340" y="164" width="8" height="8"/>
+      <rect x="330" y="174" width="8" height="8"/>
+      <rect x="300" y="184" width="8" height="8"/>
+      <rect x="320" y="184" width="8" height="8"/>
+      <rect x="340" y="184" width="8" height="8"/>
+    </g>
+
+    <text x="34" y="278" fill="#F5F0E8" fill-opacity="0.38" font-family="Verdana, Arial, sans-serif" font-size="12" letter-spacing="3">FEATURES</text>
+
+    <rect x="34.5" y="302.5" width="160" height="62" fill="rgba(255,255,255,0.03)" stroke="rgba(245,240,232,0.10)"/>
+    <rect x="216.5" y="302.5" width="160" height="62" fill="rgba(255,255,255,0.03)" stroke="rgba(245,240,232,0.10)"/>
+
+    <text x="56" y="330" fill="#F5F0E8" fill-opacity="0.50" font-family="Verdana, Arial, sans-serif" font-size="12" letter-spacing="2">FRONTEND</text>
+    <text x="56" y="352" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="18" font-weight="700">Cinematic UI</text>
+
+    <text x="238" y="330" fill="#F5F0E8" fill-opacity="0.50" font-family="Verdana, Arial, sans-serif" font-size="12" letter-spacing="2">BACKEND</text>
+    <text x="238" y="352" fill="#F5F0E8" font-family="Verdana, Arial, sans-serif" font-size="18" font-weight="700">API + analytics</text>
+
+    <text x="34" y="408" fill="#F5F0E8" fill-opacity="0.78" font-family="Verdana, Arial, sans-serif" font-size="15">
+      Built to look strong on GitHub and behave like a real product.
+    </text>
+  </g>
 </svg>
