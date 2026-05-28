@@ -815,6 +815,16 @@ body:has(a:hover) .cursor {
     gap: 1rem;
   }
 
+  .bg-text {
+    opacity: 0.2;
+    font-size: clamp(120px, 24vw, 220px);
+  }
+
+  .spotlight {
+    width: 700px;
+    height: 700px;
+  }
+
   .vault-layout {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -822,13 +832,38 @@ body:has(a:hover) .cursor {
 }
 
 @media (max-width: 760px) {
+  body::before,
+  .grain,
+  .web-bg,
+  .bg-text,
+  .scroll-cue,
+  .hanging-threads {
+    display: none;
+  }
+
   .top-nav {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.9rem 1rem;
   }
 
   .nav-links {
-    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 60%;
+    scrollbar-width: none;
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
   }
 
   #hero,
@@ -837,8 +872,43 @@ body:has(a:hover) .cursor {
     padding-right: 1rem;
   }
 
+  #hero {
+    min-height: auto;
+    padding-top: 6.4rem;
+    padding-bottom: 2.5rem;
+  }
+
+  #vault {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-badge {
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+  }
+
   .hero-title {
     font-size: clamp(3rem, 18vw, 5.6rem);
+    line-height: 0.92;
+  }
+
+  .hero-sub {
+    max-width: 30ch;
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .input-section {
+    max-width: 100%;
+    margin-top: 2rem;
   }
 
   .input-row,
@@ -846,6 +916,31 @@ body:has(a:hover) .cursor {
   .url-head,
   .vault-header {
     flex-direction: column;
+  }
+
+  .input-row {
+    align-items: stretch;
+  }
+
+  .url-icon {
+    display: none;
+  }
+
+  .url-field {
+    width: 100%;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .alias-row {
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .alias-field {
+    min-width: 100%;
+    padding-top: 0.25rem;
   }
 
   .shoot-btn,
@@ -860,7 +955,105 @@ body:has(a:hover) .cursor {
     padding: 1rem 1.2rem;
   }
 
+  .result {
+    padding: 1rem;
+  }
+
+  .result-copy h2 {
+    font-size: 1.7rem;
+  }
+
+  .result-row {
+    align-items: flex-start;
+  }
+
+  .result-row a {
+    font-size: 0.9rem;
+  }
+
+  .qr-panel,
+  .qr-card {
+    width: 100%;
+  }
+
+  .qr-image,
+  .qr-thumb {
+    width: 140px;
+    height: 140px;
+  }
+
+  .vault-copy h2 {
+    font-size: clamp(2.3rem, 12vw, 3.8rem);
+  }
+
+  .vault-copy p {
+    max-width: 100%;
+    font-size: 0.94rem;
+    line-height: 1.7;
+  }
+
+  .vault-header {
+    padding: 1rem 1rem 0;
+  }
+
+  .url-list {
+    padding: 1rem;
+  }
+
+  .url-item {
+    padding: 0.9rem;
+  }
+
+  .short-code {
+    font-size: 1.55rem;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .secondary-action,
+  .danger-action,
+  .qr-download,
+  .qr-download-link {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.45rem;
+    letter-spacing: 0.14em;
+  }
+
+  .nav-links {
+    max-width: 58%;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 17vw, 4.2rem);
+  }
+
+  .hero-sub {
+    font-size: 0.88rem;
+  }
+
+  .message {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .vault-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .original-link,
+  .vault-header p {
+    font-size: 0.84rem;
   }
 }
