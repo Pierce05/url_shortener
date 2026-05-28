@@ -33,6 +33,7 @@ This makes it a much better showcase of backend engineering, product thinking, a
 - Track click count and last-visited timestamp
 - Edit destination URLs after creation
 - Delete links from the dashboard
+- Show only the links created from the current browser vault
 - Manage everything through a browser UI or the REST API
 
 ## Tech Stack

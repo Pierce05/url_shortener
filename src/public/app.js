@@ -10,10 +10,37 @@ const urlList = document.getElementById("url-list");
 const template = document.getElementById("url-item-template");
 const cursor = document.querySelector(".cursor");
 const cursorRing = document.querySelector(".cursor-ring");
+const VAULT_STORAGE_KEY = "snaplink-shortcodes";
 
 let latestShortUrl = "";
 let latestQrCode = "";
 let latestQrFilename = "";
+
+function getStoredShortCodes() {
+  try {
+    const raw = window.localStorage.getItem(VAULT_STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_error) {
+    return [];
+  }
+}
+
+function setStoredShortCodes(shortCodes) {
+  window.localStorage.setItem(VAULT_STORAGE_KEY, JSON.stringify(shortCodes));
+}
+
+function saveShortCode(shortCode) {
+  const current = getStoredShortCodes();
+  if (!current.includes(shortCode)) {
+    setStoredShortCodes([shortCode, ...current]);
+  }
+}
+
+function removeShortCode(shortCode) {
+  const next = getStoredShortCodes().filter((entry) => entry !== shortCode);
+  setStoredShortCodes(next);
+}
 
 function setMessage(text, tone = "") {
   messageBox.textContent = text;
@@ -36,6 +63,13 @@ async function loadUrls() {
   urlList.innerHTML = "<p class=\"empty-state\">Loading the vault...</p>";
 
   try {
+    const savedShortCodes = getStoredShortCodes();
+
+    if (savedShortCodes.length === 0) {
+      urlList.innerHTML = "<p class=\"empty-state\">This vault is personal to this browser. Create your first short link above and it will appear here.</p>";
+      return;
+    }
+
     const response = await fetch("/api/urls");
     const payload = await response.json();
 
@@ -43,14 +77,16 @@ async function loadUrls() {
       throw new Error(payload.message || "Could not load URLs.");
     }
 
-    if (payload.count === 0) {
-      urlList.innerHTML = "<p class=\"empty-state\">No links in the vault yet. Fire your first short link from the hero above.</p>";
+    const visibleUrls = payload.data.filter((urlEntry) => savedShortCodes.includes(urlEntry.shortCode));
+
+    if (visibleUrls.length === 0) {
+      urlList.innerHTML = "<p class=\"empty-state\">No saved links from this browser were found. Create a new one and it will be tracked here.</p>";
       return;
     }
 
     urlList.innerHTML = "";
 
-    payload.data.forEach((urlEntry) => {
+    visibleUrls.forEach((urlEntry) => {
       const fragment = template.content.cloneNode(true);
       const item = fragment.querySelector(".url-item");
 
@@ -118,6 +154,7 @@ async function loadUrls() {
             throw new Error(payload.message || "Could not delete URL.");
           }
 
+          removeShortCode(urlEntry.shortCode);
           setMessage("Short URL deleted.", "success");
           await loadUrls();
         } catch (error) {
@@ -162,6 +199,7 @@ shortenForm.addEventListener("submit", async (event) => {
     latestShortUrl = payload.data.shortUrl;
     latestQrCode = payload.data.qrCodeDataUrl;
     latestQrFilename = payload.data.qrCodeFilename;
+    saveShortCode(payload.data.shortCode);
     resultLink.href = latestShortUrl;
     resultLink.textContent = latestShortUrl;
     resultQrImage.src = latestQrCode;
