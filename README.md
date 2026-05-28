@@ -1,6 +1,7 @@
 # SnapLink
 
 live on : https://url-shortener-1149.onrender.com/
+
 **Snap. Scan. Shorten.**
 
 ![SnapLink banner](./assets/github-banner.svg)
